@@ -16,6 +16,7 @@ services:
   home-assistant:
     << : *default-properties
     image: homeassistant/raspberrypi4-homeassistant
+    container_name: home-assistant
     environment:
       << : *common-env
     user: ${PUID}:${PUID}
@@ -49,6 +50,7 @@ services:
   postgres:
     << : *default-properties
     image: postgres
+    container_name: postgres
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data/postgres:/var/lib/postgresql/data
