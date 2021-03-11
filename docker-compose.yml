@@ -23,6 +23,7 @@ services:
     command: /config/docker/run
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /var/log/home-assistant:/var/log:rw
       - ./appdata/home-assistant:/config:rw
     ports:
       - 8123:8123
@@ -36,6 +37,7 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /var/log/deconz:/var/log:rw
       - ./appdata/deconz:/root/.local/share/dresden-elektronik/deCONZ:rw
     devices:
       - /dev/ttyACM0
@@ -57,6 +59,7 @@ services:
     container_name: postgres
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /var/log/postgres:/var/log:rw
       - ./data/postgres:/var/lib/postgresql/data
     environment:
       << : *common-env
@@ -70,6 +73,7 @@ services:
     container_name: swag
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /var/log/swag:/var/log:rw
       - ./appdata/swag:/config:rw
       - ./appdata/swag/home-assistant.subdomain.conf:/config/nginx/proxy-confs/home-assistant.subdomain.conf
       - ./appdata/swag/plex.subdomain.conf:/config/nginx/proxy-confs/plex.subdomain.conf
