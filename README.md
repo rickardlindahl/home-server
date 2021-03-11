@@ -1,8 +1,8 @@
 # Home server setup
 
-Run `./create-env.sh` to generate the boilerplate .env
+Run `./setup.sh` to generate the boilerplate .env and data directories
 
-Edit .env - all environment variables are required
+Edit `.env` - all environment variables are required
 
 ```shell
 docker-compose up -d
