@@ -1,0 +1,77 @@
+- alias: "Turn On Kitchen table lights from dimmer normal"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_table_switch
+        event: 1002
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_table
+        brightness_pct: 20
+
+- alias: "Make the lights go bright"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_table_switch
+        event: 1001
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.ramp_light
+      data:
+        variables:
+          direction: up
+          light: light.kitchen_table
+
+- alias: "Make the lights go dim"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_table_switch
+        event: 2001
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.ramp_light
+      data:
+        variables:
+          direction: down
+          light: light.kitchen_table
+
+- alias: "Stop the light just there"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_table_switch
+        event: 1003
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_table_switch
+        event: 2003
+  action:
+    - service: script.turn_off
+      target:
+        entity_id: script.ramp_light
+
+- alias: "Turn Off Kitchen table lights from dimmer normal"
+  initial_state: "on"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: kitchen_table_switch
+      event: 2002
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_table

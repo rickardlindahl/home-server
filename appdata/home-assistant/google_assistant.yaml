@@ -1,0 +1,91 @@
+project_id: !secret google_project_id
+service_account: !include service_account.json
+report_state: true
+expose_by_default: false
+entity_config:
+  # Kitchen
+  light.kitchen:
+    name: Alla
+    room: Kök
+    aliases:
+      - Lampor kök
+      - Alla lampor kök
+      - Alla enheter kök
+      - Kökslampor
+      - Kök
+  light.kitchen_table:
+    name: Köksbord
+    room: Kök
+    aliases:
+      - Köksbordslampa
+  light.kitchen_window:
+    name: Trälampa
+    room: Kök
+    aliases:
+      - Fönsterlampa kök
+      - Trälampa
+
+  # Living room
+  light.living_room:
+    name: Alla
+    room: Vardagsrum
+    aliases:
+      - Lampor vardagsrum
+      - Vardagsrumslampor
+      - Alla lampor vardagsrum
+      - Alla enheter vardagsrum
+      - Vardagsrum
+  switch.living_room:
+    name: Eluttag vardagsrum
+    room: Vardagsrum
+  light.living_room_piano:
+    name: Piano
+    room: Vardagsrum
+  light.living_room_sofa:
+    name: Soffa
+    room: Vardagsrum
+    aliases:
+      - Stående
+  light.living_room_window:
+    name: Glaskupa
+    room: Vardagsrum
+    aliases:
+      - Fönsterlampa vardagsrum
+
+  # Hall
+  light.hall_table:
+    name: Svamp
+    room: Hall
+    aliases:
+      - Byrålampa
+
+  # Bedroom
+  light.bedroom:
+    name: Alla
+    room: Sovrum
+    aliases:
+      - Lampor sovrum
+      - Alla lampor sovrum
+      - Alla enheter vardagsrum
+      - Alla enheter sovrum
+      - Sovrum
+  switch.bedroom:
+    name: Eluttag
+    room: Sovrum
+  light.bedroom_l:
+    name: Sänglampa L
+    room: Sovrum
+    aliases:
+      - Linnéa
+  light.bedroom_r:
+    name: Sänglampa R
+    room: Sovrum
+    aliases:
+      - Rickard
+
+  # Estelle's room
+  switch.estelles_room:
+    name: Eluttag
+    room: Estelles rum
+    aliases:
+      - Fönsterlampa Estelles rum
