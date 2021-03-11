@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# Create data directory not stored in git
+mkdir -p ./data/postgres
+
 tee .env <<EOF!
 PUID=`id -u $USER`
 PGID=`getent group docker | cut -d: -f3`
