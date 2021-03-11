@@ -6,3 +6,4 @@ home-assistant.log
 .HA_VERSION
 *.cer
 *.key
+service_account.json
