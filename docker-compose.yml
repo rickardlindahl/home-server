@@ -71,6 +71,11 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./appdata/swag:/config:rw
+      - ./appdata/swag/home-assistant.subdomain.conf:/config/nginx/proxy-confs/home-assistant.subdomain.conf
+      - ./appdata/swag/plex.subdomain.conf:/config/nginx/proxy-confs/plex.subdomain.conf
+      - ./appdata/swag/radarr.subdomain.conf:/config/nginx/proxy-confs/radarr.subdomain.conf
+      - ./appdata/swag/radarr2.subdomain.conf:/config/nginx/proxy-confs/radarr2.subdomain.conf
+      - ./appdata/swag/sonarr.subdomain.conf:/config/nginx/proxy-confs/sonarr.subdomain.conf
     environment:
       << : *common-env
       UMASK_SET: "022"
