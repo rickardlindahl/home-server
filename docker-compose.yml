@@ -1,0 +1,79 @@
+version: "3.8"
+
+x-default-properties: &default-properties
+  logging:
+      driver: json-file
+  restart: unless-stopped
+  network_mode: bridge
+  privileged: false
+
+x-common-env: &common-env
+  PGID: "${PGID:?err}"
+  PUID: "${PUID:?err}"
+  TZ: "${TZ}"
+
+services:
+  home-assistant:
+    << : *default-properties
+    image: homeassistant/raspberrypi4-homeassistant
+    environment:
+      << : *common-env
+    user: ${PUID}:${PUID}
+    command: /config/docker/run
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./appdata/home-assistant:/config:rw
+
+  deconz:
+    << : *default-properties
+    image: marthoc/deconz
+    container_name: deconz
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./appdata/deconz:/root/.local/share/dresden-elektronik/deCONZ:rw
+    devices:
+      - /dev/ttyACM0
+    environment:
+      DECONZ_WEB_PORT: 8080
+      DECONZ_WS_PORT: 8443
+      DEBUG_INFO: 1
+      DEBUG_APS: 0
+      DEBUG_ZCL: 0
+      DEBUG_ZDP: 0
+      DEBUG_OTAU: 0
+    ports:
+      - 8080:8080
+      - 8443:8443
+
+  postgres:
+    << : *default-properties
+    image: postgres
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data/postgres:/var/lib/postgresql/data
+    environment:
+      << : *common-env
+      POSTGRES_DB: "${POSTGRES_DB:?err}"
+      POSTGRES_USER: "${POSTGRES_USER:?err}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?err}"
+
+  swag:
+    << : *default-properties
+    image: ghcr.io/linuxserver/swag:latest
+    container_name: swag
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./appdata/swag:/config:rw
+    environment:
+      << : *common-env
+      UMASK_SET: "022"
+      EMAIL: "${SWAG_EMAIL:?err}"
+      SUBDOMAINS: "${SWAG_SUBDOMAINS:?err}"
+      URL: "${SWAG_URL:?err}"
+      VALIDATION: http
+      DNSPLUGIN: cloudflare
+      MAXMINDDB_LICENSE_KEY: "${MAXMINDDB_LICENSE_KEY:?err}"
+    ports:
+      - 35662:80
+      - 48063:443

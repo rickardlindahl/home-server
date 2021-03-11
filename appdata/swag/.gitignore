@@ -1,0 +1,11 @@
+.donoteditthisfile.conf
+crontabs
+etc
+geoip2db
+log
+php
+dns-conf
+fail2ban
+keys
+nginx
+www
