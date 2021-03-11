@@ -24,6 +24,10 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./appdata/home-assistant:/config:rw
+    ports:
+      - 8123:8123
+    links:
+      - "postgres:postgresql"
 
   deconz:
     << : *default-properties
