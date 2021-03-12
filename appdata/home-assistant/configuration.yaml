@@ -50,7 +50,6 @@ sensor:
       - type: memory_free
       - type: memory_use_percent
       - type: memory_use
-      - type: memory_free
       - type: load_1m
       - type: load_5m
       - type: load_15m
