@@ -1,0 +1,31 @@
+title: Raspberry Pi
+path: raspberry-pi
+panel: false
+visible:
+  - user: 7c50bf21b9844f3f9f2a9fa691b84805
+badges: []
+cards:
+  - type: sensor
+    entity: sensor.memory_use
+    graph: line
+    hours_to_show: 8
+    detail: 1
+  - type: gauge
+    entity: sensor.processor_use_percent
+    min: 0
+    max: 100
+  - type: entity
+    entity: sensor.disk_use_percent_home
+  - type: entities
+    entities:
+      - entity: sensor.memory_use
+      - entity: sensor.memory_use_percent
+      - entity: sensor.load_1m
+      - entity: sensor.load_5m
+      - entity: sensor.processor_use_percent
+      - entity: sensor.processor_temperature
+      - entity: sensor.network_throughput_in_eth0
+      - entity: sensor.network_throughput_out_eth0
+      - entity: sensor.last_boot
+    state_color: true
+

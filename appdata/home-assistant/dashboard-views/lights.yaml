@@ -1,0 +1,55 @@
+title: Lampor
+path: lights
+panel: false
+badges: []
+cards:
+  - type: entities
+    entities:
+      - entity: light.living_room_piano
+        name: Pianot
+        secondary_info: brightness
+      - entity: light.living_room_sofa
+        name: Soffan
+        secondary_info: brightness
+      - entity: light.living_room_window
+        name: Fönsterlampan
+        secondary_info: brightness
+      - entity: switch.living_room
+        name: Gardinlampan
+    title: Vardagsrummet
+    state_color: true
+  - type: entities
+    entities:
+      - entity: light.kitchen_table
+        name: Köksbordet
+        secondary_info: brightness
+      - entity: light.kitchen_window
+        name: Fönsterlampan
+        secondary_info: brightness
+    title: Köket
+  - type: entities
+    entities:
+      - entity: light.hall
+        name: Svampen
+        secondary_info: brightness
+    title: Hallen
+    state_color: true
+    show_header_toggle: false
+  - type: entities
+    entities:
+      - entity: light.bedroom_l
+        name: Linnéas
+        secondary_info: brightness
+      - entity: light.bedroom_r
+        name: Rickards
+        secondary_info: brightness
+      - entity: switch.bedroom
+        name: Fönsterlampan
+    title: Sovrummet
+    state_color: true
+  - type: entities
+    entities:
+      - entity: switch.estelles_room
+        name: Fönsterlampan
+    title: Estelles rum
+    state_color: true
