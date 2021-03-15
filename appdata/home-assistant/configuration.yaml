@@ -95,22 +95,3 @@ sensor:
 google_assistant: !include google_assistant.yaml
 
 automation kitchen_table_lights_from_yaml: !include automations/kitchen_table_lights.yaml
-
-media_player:
-  - platform: nad
-    type: TCP
-    host: 192.168.1.13
-    port: 23
-    name: NAD Receiver
-    min_volume: -60
-    max_volume: -30
-    sources:
-      1: "Stream"
-      2: "Wireless"
-      3: "TV"
-      4: "Phono"
-      5: "Coax1"
-      6: "Coax2"
-      7: "Opt1"
-      8: "Opt2"
-      
