@@ -1,0 +1,8 @@
+- platform: group
+  name: All lights and switches
+  entities:
+    - light.bedroom
+    - light.estelles_room
+    - light.hall
+    - light.kitchen
+    - light.living_room

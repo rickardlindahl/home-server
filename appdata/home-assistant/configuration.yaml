@@ -4,6 +4,9 @@ homeassistant:
 
 lovelace:
   mode: yaml
+  resources:
+    - url: /local/slider-entity-row.js?v=17.0.0
+      type: js
   dashboards:
     my-dashboard:
       mode: yaml
@@ -26,6 +29,8 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+light: !include entities/lights.yaml
 
 input_number:
   light_step:
