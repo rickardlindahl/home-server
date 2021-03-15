@@ -31,6 +31,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 light: !include entities/lights.yaml
+sensor: !include entities/sensors.yaml
 
 input_number:
   light_step:
@@ -60,37 +61,6 @@ input_number:
     min: 100
     max: 5000
     step: 100
-
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /home
-      - type: memory_free
-      - type: memory_use_percent
-      - type: memory_use
-      - type: load_1m
-      - type: load_5m
-      - type: load_15m
-      - type: network_in
-        arg: eth0
-      - type: network_out
-        arg: eth0
-      - type: throughput_network_in
-        arg: eth0
-      - type: throughput_network_out
-        arg: eth0
-      - type: packets_in
-        arg: eth0
-      - type: packets_out
-        arg: eth0
-      - type: ipv4_address
-        arg: eth0
-      - type: ipv6_address
-        arg: eth0
-      - type: processor_use
-      - type: processor_temperature
-      - type: last_boot
 
 google_assistant: !include google_assistant.yaml
 
