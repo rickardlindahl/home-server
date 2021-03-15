@@ -27,3 +27,14 @@
     - type: processor_use
     - type: processor_temperature
     - type: last_boot
+
+- platform: radarr
+  api_key: !secret radarr_api_key
+  host: 192.168.1.161
+  port: 7879
+  monitored_conditions:
+    - movies
+    - upcoming
+    - status
+  days: 14
+  ssl: false
