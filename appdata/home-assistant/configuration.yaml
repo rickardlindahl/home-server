@@ -7,6 +7,8 @@ lovelace:
   resources:
     - url: /local/slider-entity-row.js?v=17.0.0
       type: js
+    - url: /local/vacuum-card.js?v=1.18.0
+      type: module
   dashboards:
     my-dashboard:
       mode: yaml

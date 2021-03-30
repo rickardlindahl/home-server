@@ -2,3 +2,4 @@ title: My Dashboard
 views:
   - !include dashboard-views/lights.yaml
   - !include dashboard-views/raspberry_pi.yaml
+  - !include dashboard-views/vacuum.yaml
