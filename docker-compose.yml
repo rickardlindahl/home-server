@@ -19,7 +19,7 @@ services:
     container_name: home-assistant
     environment:
       << : *common-env
-    user: ${PUID}:${PUID}
+    user: ${PUID}:${PGID}
     command: /config/docker/run
     volumes:
       - /etc/localtime:/etc/localtime:ro
