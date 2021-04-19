@@ -15,7 +15,7 @@ x-common-env: &common-env
 services:
   home-assistant:
     << : *default-properties
-    image: homeassistant/raspberrypi4-homeassistant
+    image: homeassistant/raspberrypi4-homeassistant:stable
     container_name: home-assistant
     environment:
       << : *common-env
